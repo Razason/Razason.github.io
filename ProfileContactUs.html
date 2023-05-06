@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Contact Us</title>
+	<script src="Profile.js"></script>
+	<style>
+		.map {
+			height: 400px;
+			width: 810px;
+            padding-left: 6px;
+    	}
+		#form {
+			margin-top: 20px;
+			padding: 20px;
+			background-color: #FFE4C4;
+			border-radius: 10px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+		}
+		#form label, #form input, #form textarea {
+			display: block;
+			margin-bottom: 10px;
+			width: 100%;
+			box-sizing: border-box;
+			font-family: Arial, sans-serif;
+		}
+		
+		#form input, #form textarea {
+			padding: 10px;
+			border-radius: 5px;
+			border: none;
+		}
+		
+		.form textarea {
+			height: 100px;
+		}
+		
+		.form input[type="submit"] {
+			background-color: #4CAF50;
+			color: white;
+			padding: 10px 20px;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+		}
+		#form input[type="submit"]:hover {
+			background-color: #15d91c;
+		}
+        body{
+            background-color: black;
+        }
+	</style>
+</head>
+<body>
+	<h1 style="font-size: 40px;text-align: center;">Contact Us</h1>
+	<div class="map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.5253591686746!2d39.29746117416472!3d-6.194195893793441!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x185cd94d68e97cbf%3A0x746ed6de2f4059b7!2sJumbi%20makontena!5e0!3m2!1sen!2stz!4v1683209300100!5m2!1sen!2stz" width="810" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+	</div>
+	<div id="form">
+		<h2 style="text-align: center; font-size:30px;">Want To Hire Me?</h2>
+		<form  id="form">
+			<label for="name">Name</label>
+			<input type="text" id="name" name="name" required>
+			
+			<label for="address">Address</label>
+			<input type="text" id="address" name="address" required>
+			
+			<label for="email">Email</label>
+			<input type="email" id="email" name="email" required>
+			
+			<label for="comments">Comments</label>
+			<textarea id="comments" name="comments"></textarea>
+			<input type="submit" value="Submit">
+		</form>
+	</div>
+</body>
+</html>

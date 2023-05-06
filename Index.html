@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        
+        .login-form {
+            margin: 50px auto;
+            max-width: 400px;
+            padding: 30px;
+            background-color: #DAA520;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .login-form h2 {
+            text-align: center;
+            margin-top: 0;
+        }
+        
+        .login-form label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        
+        .login-form input[type="text"],
+        .login-form input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        
+        .login-form button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        
+        .login-form button:hover {
+            background-color: #3e8e41;
+        }
+        
+        .error-message {
+            color: red;
+            margin-top: 10px;
+            text-align: center;
+        } 
+        body{
+            background-color: black;
+        }       
+    </style>
+</head>
+<body>
+	<div class="login-form">
+		<h2>LogIn</h2>
+		<form id="login-form">
+			<label for="username">Username</label>
+			<input type="text" id="username" name="username" required >
+
+			<label for="password">Password</label>
+			<input type="password" id="password" name="password" required>
+
+            <label for="email">Email</label>
+            <input type="text" id="email" name="email" required>
+
+            <label for="address">Address</label>
+            <input type="text" id="address" name="address" required>
+            
+
+			<button type="submit">Login</button>
+		</form>
+		<p id="login-error" class="error-message"></p>
+	</div>
+	<script>
+        const form = document.getElementById('login-form');
+        const error = document.getElementById('login-error');
+
+        form.addEventListener('submit', function(event){
+        event.preventDefault(); // Prevent default form submission behavior
+
+        const username = form.elements.username.value;
+        const password = form.elements.password.value;
+
+        if (isValidLogin(username, password)) {
+            login(username);
+        } 
+        else {
+            showError('Invalid username or password');
+        }
+    });
+
+    function isValidLogin(username, password) {
+        const storedUsers = JSON.parse(localStorage.getItem('users'));
+        if (storedUsers && storedUsers[username] === password) {
+            return true;
+        }
+        return false;
+    }
+
+    function login(username) {
+        localStorage.setItem('currentUser', username);
+        window.location.href = 'Profile.html';
+    }
+
+    function showError(message) {
+        error.textContent = message;
+    }
+    //valid user credentials
+const validUsers = {
+    "Raza": "password"
+  };
+  
+  // Store the object as a string in Local Storage with the key "users"
+  localStorage.setItem("users", JSON.stringify(validUsers));  
+    
+const form1 = document.getElementById('login-form');
+
+// Reset the form to its initial state after successful login
+function login(username) {
+  localStorage.setItem('currentUser', username);
+  form.reset();
+  window.location.href = 'Profile.html';
+}
+</script>
+</body>
+</html>
